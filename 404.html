@@ -2,7 +2,7 @@
 <html>
 <head>
   <script>
-    // Preserve the path and hand it to index.html
+    // Save the full path the user tried to visit, then send them to index.html
     sessionStorage.setItem('redirectPath', window.location.pathname);
     window.location.replace("/mivagyunkadsz/");
   </script>
