@@ -12,9 +12,9 @@
 
   <script>
     const baseUrl = "https://script.google.com/macros/s/AKfycbz5JL3CwfTLegxYEJ7RabzBAza0xORvg-OUXu1ug4JLRuRc-gtW1Hw_HexmqmTFtz6tHw/exec";
-    const basePath = "/myrepository/"; // <-- your repo name
+    const basePath = "/mivagyunkadsz/"; // ✓ your real repo folder
 
-    // Turn /myrepository/form1  ->  ?page=form1
+    // Turn /designszakosztaly/form1  ->  ?page=form1
     let page = window.location.pathname.replace(basePath, "").replace(/\/$/, "");
     const param = page ? "?page=" + encodeURIComponent(page) : "";
 
