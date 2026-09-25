@@ -5,8 +5,7 @@
 </head>
 <body>
   <iframe 
-    src="https://script.google.com/macros/s/AKfycbz5JL3CwfTLegxYEJ7RabzBAza0xORvg-OUXu1ug4JLRuRc-gtW1Hw_HexmqmTFtz6tHw/exec"
-
+    id="main-frame"
     width="100%"
     height="100%"
     allowfullscreen="true"
@@ -14,9 +13,16 @@
   </iframe>
 
   <script>
+    const baseUrl = "https://script.google.com/macros/s/AKfycbz5JL3CwfTLegxYEJ7RabzBAza0xORvg-OUXu1ug4JLRuRc-gtW1Hw_HexmqmTFtz6tHw/exec";
+
+    // Grab any query params from the current page URL
+    const params = window.location.search; // e.g. "?page=something"
+
+    const iframe = document.getElementById('main-frame');
+    iframe.src = baseUrl + params;
+
     window.onload = function() {
-      document.querySelector('iframe')
-        .requestFullscreen()
+      iframe.requestFullscreen()
         .catch((err) => {
           console.error('Error attempting to enable full-screen mode:', err.message);
         });
@@ -24,4 +30,3 @@
   </script>
 </body>
 </html>
-        
