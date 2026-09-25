@@ -4,29 +4,21 @@
   <title>Design Szakosztály</title>
 </head>
 <body>
-  <iframe 
+  <iframe
     id="main-frame"
-    width="100%"
-    height="100%"
     allowfullscreen="true"
     style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; border: none;">
   </iframe>
 
   <script>
     const baseUrl = "https://script.google.com/macros/s/AKfycbz5JL3CwfTLegxYEJ7RabzBAza0xORvg-OUXu1ug4JLRuRc-gtW1Hw_HexmqmTFtz6tHw/exec";
+    const basePath = "/myrepository/"; // <-- your repo name
 
-    // Grab any query params from the current page URL
-    const params = window.location.search; // e.g. "?page=something"
+    // Turn /myrepository/form1  ->  ?page=form1
+    let page = window.location.pathname.replace(basePath, "").replace(/\/$/, "");
+    const param = page ? "?page=" + encodeURIComponent(page) : "";
 
-    const iframe = document.getElementById('main-frame');
-    iframe.src = baseUrl + params;
-
-    window.onload = function() {
-      iframe.requestFullscreen()
-        .catch((err) => {
-          console.error('Error attempting to enable full-screen mode:', err.message);
-        });
-    };
+    document.getElementById('main-frame').src = baseUrl + param;
   </script>
 </body>
 </html>
